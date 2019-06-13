@@ -145,5 +145,30 @@
         </div>
       </div>
     </main>
+    <script>
+      const debounce = (func, wait, immediate) => {
+        var timeout;
+        return (...args) => {
+          const later = () => {
+            timeout = null;
+            if (!immediate) func.apply(this, args);
+          };
+          const callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, args);
+          if (callNow) func.apply(this, args);
+        };
+      };
+
+      const screens = document.querySelector('#screens');
+      const navbar = document.querySelector('#navbar');
+      const pageNames = ['Flights', 'Rewards'];
+
+      const pageTransition = debounce(() => {
+        const index = Math.round(screens.scrollLeft / window.innerWidth);
+        navbar.textContent = pageNames[index];
+      }, 60);
+      screens.addEventListener('scroll', pageTransition);
+    </script>
 	</body>
 </html>
