@@ -38,12 +38,71 @@
 				min-height: calc(100vh - 70px);
 				scroll-snap-align: start;
 			}
+			.loading-spinner {
+		        animation-duration: 0.75s;
+		        animation-iteration-count: infinite;
+		        animation-name: rotate-forever;
+		        animation-timing-function: linear;
+		        height: 30px;
+		        width: 30px;
+		        border: 3px solid var(--primary);
+		        border-right-color: transparent;
+		        border-radius: 50%;
+		      }
+		      @keyframes rotate-forever {
+		        0% {
+		          transform: rotate(0deg);
+		        }
+		        100% {
+		          transform: rotate(360deg);
+		        }
+		      }
 		</style>
 	</head>
 	<body>
 		<!-- App shell html -->
 		<nav id="navbar">Flights</nav>
-		<main id="screen-flighs" class="screens">flights</main>
-		<main id="screen-rewards" class="screens">rewards</main>
+		<main id="screen-flighs" class="screens">
+			<div class="spinner-container">
+				<svg
+					class="spinner"
+					width="40px"
+					height="40px"
+					viewBox="0 0 66 66"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<cirlce
+						class="path"
+						fill="none"
+						stroke-width="6"
+						stroke-linecap="round"
+						cx="33"
+						cy="33"
+						r="30"
+					></cirlce>
+				</svg>
+			</div>
+		</main>
+		<main id="screen-rewards" class="screens">
+			<div class="spinner-container">
+				<svg
+					class="spinner"
+					width="40px"
+					height="40px"
+					viewBox="0 0 66 66"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<cirlce
+						class="path"
+						fill="none"
+						stroke-width="6"
+						stroke-linecap="round"
+						cx="33"
+						cy="33"
+						r="30"
+					></cirlce>
+				</svg>
+			</div>
+		</main>
 	</body>
 </html>
