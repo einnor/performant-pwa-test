@@ -10,11 +10,11 @@
 				--gray: #ececec;
 				--whitesmoke: #f5f5f5;
 				--dark: #222222;
-			};
+			}
 			body {
 				margin: 0;
 				background-color: var(--whitesmoke);
-				font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+				font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 			}
 			#navbar {
 				height: 70px;
@@ -38,71 +38,112 @@
 				min-height: calc(100vh - 70px);
 				scroll-snap-align: start;
 			}
-			.loading-spinner {
-		        animation-duration: 0.75s;
-		        animation-iteration-count: infinite;
-		        animation-name: rotate-forever;
-		        animation-timing-function: linear;
-		        height: 30px;
-		        width: 30px;
-		        border: 3px solid var(--primary);
-		        border-right-color: transparent;
-		        border-radius: 50%;
-		      }
-		      @keyframes rotate-forever {
-		        0% {
-		          transform: rotate(0deg);
-		        }
-		        100% {
-		          transform: rotate(360deg);
-		        }
-		      }
+      .spinner-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 70px);
+
+      }
+      .spinner {
+        animation: rotator 1.4s linear infinite;
+      }
+      @keyframes rotator {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(270deg);
+        }
+      }
+      .path {
+        stroke-dasharray: 188;
+        stroke-dashoffset: 188;
+        transform-origin: center;
+        stroke: #4285F4;
+        animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+      }
+      @keyframes colors {
+        0% {
+          stroke: #4285F4;
+        }
+        25% {
+          stroke: #DE3E35;
+        }
+        50% {
+          stroke: #F7C223;
+        }
+        75% {
+          stroke: #1B9A59;
+        }
+        100% {
+          stroke: #4285F4;
+        }
+      }
+      @keyframes dash {
+        0% {
+          stroke-dashoffset: 188;
+        }
+        50% {
+          stroke-dashoffset: 47;
+          transform: rotate(135deg);
+        }
+        100% {
+          stroke-dashoffset: 188;
+          transform: rotate(450deg);
+        }
+      }
 		</style>
 	</head>
 	<body>
 		<!-- App shell html -->
 		<nav id="navbar">Flights</nav>
-		<main id="screen-flighs" class="screens">
-			<div class="spinner-container">
-				<svg
-					class="spinner"
-					width="40px"
-					height="40px"
-					viewBox="0 0 66 66"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<cirlce
-						class="path"
-						fill="none"
-						stroke-width="6"
-						stroke-linecap="round"
-						cx="33"
-						cy="33"
-						r="30"
-					></cirlce>
-				</svg>
-			</div>
-		</main>
-		<main id="screen-rewards" class="screens">
-			<div class="spinner-container">
-				<svg
-					class="spinner"
-					width="40px"
-					height="40px"
-					viewBox="0 0 66 66"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<cirlce
-						class="path"
-						fill="none"
-						stroke-width="6"
-						stroke-linecap="round"
-						cx="33"
-						cy="33"
-						r="30"
-					></cirlce>
-				</svg>
-			</div>
-		</main>
+    <main id="screens">
+      <div id="screen-flights" class="screen">
+        <div class="spinner-container">
+          <svg
+            class="spinner"
+            width="40px"
+            height="40px"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              class="path"
+              fill="none"
+              stroke="#4285F4"
+              stroke-width="6"
+              stroke-linecap="round"
+              cx="33"
+              cy="33"
+              r="30"
+            ></circle>
+          </svg>
+        </div>
+      </div>
+      <div id="screen-rewards" class="screen">
+        <div class="spinner-container">
+          <svg
+            class="spinner"
+            width="40px"
+            height="40px"
+            viewBox="0 0 66 66"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              class="path"
+              fill="none"
+              stroke="#4285F4"
+              stroke-width="6"
+              stroke-linecap="round"
+              cx="33"
+              cy="33"
+              r="30"
+            ></circle>
+          </svg>
+        </div>
+      </div>
+    </main>
 	</body>
 </html>
