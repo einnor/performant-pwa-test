@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Air Antarctica",
+    "short_name": "Air Antarctica",
+    "start_url": "/?utm_source=a2hs",
     "icons": [
         {
             "src": "/assets/favicons/android-chrome-192x192.png",
@@ -13,7 +14,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#00b99f",
     "background_color": "#ffffff",
     "display": "standalone"
 }
