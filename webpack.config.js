@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
+const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = env => {
   const mode = env.mode ? env.mode : "production";
@@ -21,6 +23,13 @@ module.exports = env => {
         template: "./index.html",
         minify: { collapseWhitespace: true, removeComments: true },
         inject: true,
+      }),
+      new CopyPlugin([
+        { from: "src/assets/", to: "assets/", ignore: [".DS_Store"] }
+      ]),
+      new WorkboxPlugin.InjectManifest({
+        swSrc: "./src-serviceWorker.js",
+        swDest: "serviceWorker.js"
       })
     ],
     devtool: "source-map"
