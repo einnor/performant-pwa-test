@@ -8,3 +8,7 @@ if ('serviceWorker' in navigator) {
 			console.log(error);
 		});
 }
+
+fetch("https://pluralsight-pwa-scratch.firebaseio.com/flights.json")
+	.then(response => response.json())
+	.then(data => console.log(data));

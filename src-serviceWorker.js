@@ -1,1 +1,1 @@
-workbox.precaching.precacheAndRoute(self._precacheManifest);
+workbox.precaching.precacheAndRoute(self.__precacheManifest);
