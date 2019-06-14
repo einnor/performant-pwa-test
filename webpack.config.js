@@ -20,7 +20,7 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         template: "./index.html",
         minify: { collapseWhitespace: true, removeComments: true },
-        inject: false
+        inject: true,
       })
     ],
     devtool: "source-map"

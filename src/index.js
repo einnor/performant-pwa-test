@@ -1,4 +1,5 @@
 // Register service worker
+console.log(12);
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('/serviceWorker.js')
 		.then((registration) => {
